@@ -76,9 +76,6 @@ const groceryList = document.getElementById("grocery-list")
 // empty array to store list of items
 let itemsList = []
 
-// to render the saved items list
-renderItems()
-
 // fetch all the items from localstorage and save it in a variable
 const items = fetchItems()
 
@@ -86,6 +83,9 @@ const items = fetchItems()
 if(items) {
     itemsList = items
 }
+
+// to render the saved items list
+renderItems()
 
 // event listener on input element to save elements on pressing enter
 inputEl.addEventListener("keydown", (e) => {
@@ -119,6 +119,7 @@ function saveItem() {
 
 // render the items array list on the screen
 function renderItems() {
+    console.log(itemsList.length)
     if(itemsList.length > 0) {
         // clear the screen before renderering so that the items appear only once
         groceryList.innerHTML = ''
